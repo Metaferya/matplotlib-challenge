@@ -27,7 +27,7 @@ focuses on metrics such as tumor volume,survival rates, and correlations between
 ## Credits
 
 
-# Analysis
+# 1-Analysis
 
 ***1-  Among the various drug regimens studied, Capomulin had the highest number of mice that completed the treatment. Except for Remicane,
 
@@ -51,7 +51,7 @@ tumor growth but also supports higher survival rates.***
  
   volume, one mouse showed a notable reduction in tumor growth.*** 
 
-# Dependencies and Setup
+# 2- Dependencies and Setup
 
 Ensure you have the following dependencies installed:
 
@@ -61,7 +61,7 @@ import pandas as pd
 
 import scipy.stats as st # type: ignore
 
-# Data Collection and Cleaning
+# 3- Data Collection and Cleaning
 
 **Load the data**
 
@@ -90,13 +90,14 @@ print(duplicates_data)
 **Clean the Data**
 
 ***Remove duplicates***
+
 mouse_study_complete_cleaned = mouse_study_complete[mouse_study_complete['Mouse ID'].isin(duplicates)==False]
 
 cleaned_mouse_count = mouse_study_complete_cleaned["Mouse ID"].nunique()
 
 print(f"Number of mice after cleaning: {cleaned_mouse_count}")
 
-# Summary Statistics
+# 4- Summary Statistics
 
 Generate summary statistics for each drug regimen:
 
@@ -129,7 +130,7 @@ summary_table = pd.DataFrame({
 
 print(summary_table)
 
-# Bar and Pie Charts
+# 5- Bar and Pie Charts
 
 
 **Generate bar plots**
@@ -174,7 +175,7 @@ plt.ylabel("Sex")
 
 plt.show()
 
-# Quartiles, Outliers, and Boxplots
+# 6- Quartiles, Outliers, and Boxplots
 
 **Determine IQR and identify potential outliers**
 highest_tumor = mouse_study_complete_cleaned.groupby(['Mouse ID'])['Timepoint'].max().reset_index()
@@ -216,7 +217,7 @@ plt.ylabel('Final Tumor Volume (mm3)')
 
 plt.show()
 
-# Line and Scatter Plots
+# 7- Line and Scatter Plots
 
 **Line plot of tumor volume vs. time point for a single mouse treated with Capomulin**
 
@@ -232,7 +233,7 @@ plt.ylabel("Tumor Volume (mm3)")
 
 plt.title("Capomulin treatment of Mouse r944")
 
-# Correlation and Regression
+# 8- Correlation and Regression
 
 **Get the correlation and regression**
 
@@ -254,7 +255,7 @@ plt.ylabel("Average Tumor Volume (mm3)")
 
 plt.show()         
 
-# Credits
+# 9- Credits
 
 I would like to extend my acknoledgment to my instructor and xpert for the help and support.
 
